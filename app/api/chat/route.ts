@@ -55,10 +55,10 @@ export async function POST(req: NextRequest) {
 
     // Prepare messages for Gemini
     const geminiMessages = history.map((msg) => ({
-      role: msg.role === 'user' ? 'user' : 'model' as const,
+      role: (msg.role === 'user' ? 'user' : 'model') as 'user' | 'model',
       content: msg.content,
     }))
-    geminiMessages.push({ role: 'user', content: message })
+    geminiMessages.push({ role: 'user' as const, content: message })
 
     // Stream response
     const encoder = new TextEncoder()
