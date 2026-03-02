@@ -31,6 +31,7 @@ export default function ChatInput() {
       conversationId: currentConversation?.id || '',
       role: 'user',
       content: input,
+      metadata: null,
       createdAt: new Date(),
     }
 
