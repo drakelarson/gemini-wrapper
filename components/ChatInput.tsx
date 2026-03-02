@@ -85,7 +85,7 @@ export default function ChatInput() {
                 } else {
                   const assistantMessage: Message = {
                     id: generateId(),
-                    conversationId,
+                    conversationId: conversationId || '',
                     role: 'assistant',
                     content: assistantContent,
                     createdAt: new Date(),
