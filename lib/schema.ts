@@ -64,7 +64,7 @@ export const messages = pgTable('messages', {
     .references(() => conversations.id, { onDelete: 'cascade' }),
   role: text('role').notNull(), // 'user' | 'assistant'
   content: text('content').notNull(),
-  metadata: jsonb('metadata'), // { files: [], model: string, tokens: number }
+  metadata: jsonb('metadata').default(null), // { files: [], model: string, tokens: number }
   createdAt: timestamp('created_at').defaultNow(),
 })
 
